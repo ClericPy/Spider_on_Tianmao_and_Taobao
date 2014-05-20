@@ -5,8 +5,10 @@
 
 * SpiderForTianmaoOrTaobaoSingle
 
+#尚要完善的：
 
-
+* SpiderForTianmaoOrTaobaoMultiprocessing多线程获取
+* SpiderForTianmaoTaobaoShoppingList商品列表源代码中获取
 
 
 
