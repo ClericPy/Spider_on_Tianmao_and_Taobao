@@ -75,9 +75,6 @@ demo运行结果为：
 '''
 
 
-
-
-
 def gettao(pid):
     url = r'http://item.taobao.com/item.htm?spm=a217m.7288829.1997547445.4.d2BNzo&id=' + \
         str(pid)
@@ -94,7 +91,7 @@ def gettao(pid):
     req = urllib.request.Request(url, headers=headers1)
     scode = urllib.request.urlopen(req).read().decode('utf-8', 'ignore')
     try:
-        pinglunshu = re.search(pid+r'":(\d*?),', scode).group(1)
+        pinglunshu = re.search(pid + r'":(\d*?),', scode).group(1)
     except:
         pinglunshu = '0'
     pingfen = re.search(r'SM_368_sm-.*?":(.*?),', scode).group(1)
@@ -162,7 +159,7 @@ def gettian(pid):
 # 测试一大段字符串里提取id然后获取内容   ↓ ↓ ↓ ↓ ↓ ↓
 
 # uu是测试字符串，可以更改成文本文件中获取的内容
-uu ='''
+uu = '''
 <!DOCTYPE html>
 <html class="ks-gecko29 ks-gecko ks-firefox29 ks-firefox no-touch">
 <head>

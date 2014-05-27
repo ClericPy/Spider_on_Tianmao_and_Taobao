@@ -3,8 +3,6 @@ import urllib.request
 import re
 from time import clock as now
 
-
-
 '''
 测试结果
 
@@ -17,11 +15,8 @@ from time import clock as now
 '''
 
 
-
-
-
 def gettao(pid):
-    pid=str(pid)
+    pid = str(pid)
     url = r'http://item.taobao.com/item.htm?spm=a217m.7288829.1997547445.4.d2BNzo&id=' + \
         str(pid)
     headers1 = {'GET': '',
@@ -37,7 +32,7 @@ def gettao(pid):
     req = urllib.request.Request(url, headers=headers1)
     scode = urllib.request.urlopen(req).read().decode('utf-8', 'ignore')
     try:
-        pinglunshu = re.search(pid+r'":(\d*?),', scode).group(1)
+        pinglunshu = re.search(pid + r'":(\d*?),', scode).group(1)
     except:
         pinglunshu = '0'
     pingfen = re.search(r'SM_368_sm-.*?":(.*?),', scode).group(1)
@@ -100,17 +95,25 @@ def gettian(pid):
     scode = urllib.request.urlopen(req).read().decode('utf-8', 'ignore')
     pingfen = re.search(r'{"gradeAvg":(.*?),"', scode).group(1)
     pinglunshu = re.search(r'"rateTotal":(.*?)}', scode).group(1)
-    print (pid, price, pinglunshu, pingfen, setcount, kucun)
+    return (pid, price, pinglunshu, pingfen, setcount, kucun)
 
 
 # 测试淘宝 Demo
 
 
+print('商品ID、价格、评论数、评分、月销量、总库存:')
+start = now()
+print(gettao(39086934885))
+finish = now()
+tt = finish - start
 
-import threading
-treads=[]
+print('本次淘宝爬虫执行时间约为：', round(tt, 2), 's')
 
-for i in {'23160556762', '20118138920', '19580363431', '38453140946', '17899154125', '37527493136', '38364173654', '37479879139', '37641079465', '15066767658', '38358863007', '38195532216', '37072348069', '37735139560', '37476516453', '16744363288', '18825861509', '10591159337', '38217060864', '37228683894', '37955719452', '36169359533', '17134881677', '18528809211', '36939511399', '38027456832', '36879577205', '38102123262', '37966822338', '19607061962', '19605933429', '37447854672', '37706104325', '23385860523', '37226747360', '22544407820', '37935165962', '17393305787', '37962145395', '14492442506', '14246342018', '37639033635', '37819861333', '37239153509', '17018783626', '37498122368', '17740806033', '14671991375', '38219475712', '18014225742', '26194420555', '37876357473', '36974466372', '38358619601', '14634995111', '37113133155', '37680723687', '37443537892', '22879472372', '37813945730'}:
-    treads.append(threading.Thread(target=gettian, args=(i,)))
-for t in treads:
-    t.start()
+# 测试天猫
+print('商品ID、价格、评论数、评分、月销量、总库存:')
+start = now()
+print(gettian(36879577205))
+finish = now()
+tt = finish - start
+
+print('本次天猫爬虫执行时间约为：', round(tt, 2), 's')
