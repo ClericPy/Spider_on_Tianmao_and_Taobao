@@ -6,7 +6,11 @@ import requests
 注意：这里使用了一个requests模块，需要去第三方下载，可以通过pip
 pip install requests
 '''
+
+# ll是用来存放评论内容列表的，key是页码，value是存放10个当页评论的列表
+
 ll = {}
+
 pid = '967821'
 headers1 = {'GET': '',
             'Host': "club.jd.com",
@@ -15,12 +19,14 @@ headers1 = {'GET': '',
 
 r1 = requests.get(
     'http://club.jd.com/productpage/p-{}-s-0-t-3-p-{}.html'.format(pid, 0), headers=headers1)
+# 先获取最大页码数
 maxpagenum = r1.json()['productCommentSummary']['commentCount'] // 10
 
 # print(maxpagenum)
 
 
 def getrate_jd(pid, pagenum):
+    '''该函数用来获取商品ID是pid的第pagenum页的评论列表'''
     headers1 = {'GET': '',
                 'Host': "club.jd.com",
                 'User-Agent': "Mozilla/5.0 (Windows NT 6.2; rv:29.0) Gecko/20100101 Firefox/29.0",
