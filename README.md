@@ -1,4 +1,4 @@
-﻿Spiders on Tianmao Taobao JingDong
+﻿Spiders on Tianmao Taobao JingDong  for Python 3.x
 ============================
 
 #因为最近有点忙，为节约时间就不用class包装起来了，有了根据天猫店铺域名获取所有商品ID的模块，可以结合爬取所有评论模块将一个商铺里的所有评论都抓下来了，还是因为时间问题，多线程就不做了，以后不更新了。只放4个：
