@@ -1,7 +1,7 @@
 import requests
 
 ''''
-自动爬取某单个商品的所有评论内容，速度因为使用多线程，大约1秒就按页码顺序存入ratejd.json，解析查看可以运行“解析json.py”。
+自动爬取某单个商品的所有评论内容，因为只是为了演示map用法，所以不再存入json”。
 
 注意：这里使用了一个requests模块，需要去第三方下载，可以通过pip
 pip install requests
