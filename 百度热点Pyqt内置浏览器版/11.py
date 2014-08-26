@@ -11,7 +11,7 @@ import re
 import os
 from lxml import _elementpath
 
-
+# 注意，该程序不会运行，cookie已经删了
 class myqt(QtWidgets.QWidget, Ui_Form):
 
     """docstring for myqt"""
@@ -49,7 +49,7 @@ class myqt(QtWidgets.QWidget, Ui_Form):
 
 def baidunews():
     headers = {'Host': 'www.baidu.com', 'Referer': 'http://www.baidu.com/',
-               'User-Agent': 'Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0', 'Cookie': 'BDUSS=jU2WjhQSzd2bTZTa0JhdXFYNG9DUzN5ZERqU3NhUU1VZmJlNmF1ZFFCTWFhd1JVQVFBQUFBJCQAAAAAAAAAAAEAAADZhwsBbGlkb25nb25lAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABre3FMa3txTW'}
+               'User-Agent': 'Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0', 'Cookie': '这里改成你自己登录后的cookie'}
     r = requests.get(
         'http://www.baidu.com/home/xman/data/newscontent', headers=headers)
     r.encoding = 'base64'
